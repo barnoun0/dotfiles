@@ -52,6 +52,11 @@
         org-hide-leading-stars t
         org-startup-folded 'content
         org-log-done 'time))
+;; Enable org-superstar for prettier bullets
+(use-package org-superstar
+  :hook (org-mode . org-superstar-mode)
+  :config
+  (setq org-superstar-headline-bullets-list '("◉" "○" "✸" "✿")))
 
 
 ;; ---------------------------------
@@ -103,7 +108,12 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    '("c48551a5fb7b9fc019bf3f61ebf14cf7c9cdca79bcb2a4219195371c02268f11"
-     default)))
+     default))
+ '(package-selected-packages
+   '(all-the-icons-ivy-rich counsel doom-modeline doom-themes magit
+			    nerd-icons-completion nerd-icons-dired
+			    nerd-icons-ibuffer org-modern
+			    org-superstar sublime-themes)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
