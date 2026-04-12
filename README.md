@@ -53,6 +53,9 @@ ln -sf ~/.dotfiles/emacs/init.el ~/.emacs.d/init.el
 mkdir -p ~/.config/rofi
 ln -sf ~/.dotfiles/rofi/config.rasi ~/.config/rofi/config.rasi
 ```
+## Screenshots
+preview(2026-04-12_23-58.png)
+preview(2026-04-12_23-56.png)
 
 ## System
 
