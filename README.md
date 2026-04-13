@@ -1,8 +1,10 @@
 
 # dotfiles
 ## Screenshots
-![Preview](2026-04-12_23-58.png) 
+
 ![Preview](2026-04-12_23-56.png) 
+
+![Preview](2026-04-12_23-58.png) 
 
 My personal configuration files for **i3wm**, **Emacs**, and **rofi** on Artix Linux.
 
