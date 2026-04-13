@@ -1,5 +1,8 @@
 
 # dotfiles
+## Screenshots
+![Preview](2026-04-12_23-58.png) 
+![Preview](2026-04-12_23-56.png) 
 
 My personal configuration files for **i3wm**, **Emacs**, and **rofi** on Artix Linux.
 
@@ -53,9 +56,6 @@ ln -sf ~/.dotfiles/emacs/init.el ~/.emacs.d/init.el
 mkdir -p ~/.config/rofi
 ln -sf ~/.dotfiles/rofi/config.rasi ~/.config/rofi/config.rasi
 ```
-## Screenshots
-![Preview](2026-04-12_23-58.png) 
-![Preview](2026-04-12_23-56.png) 
 
 ## System
 
