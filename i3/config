@@ -22,7 +22,8 @@ font pango:monospace 8
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex-autostart --autostart --environment i3
-
+exec --no-startup-id nitrogen --restore
+exec --no-startup-id flatpak run com.github.wwmm.easyeffects
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
@@ -33,7 +34,6 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
-
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -47,7 +47,7 @@ floating_modifier $mod
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
 tiling_drag modifier titlebar
-
+exec --no-startup-id setxkbmap -option ctrl:nocaps
 # start a terminal
 bindsym $mod+Return exec kitty
 
@@ -55,13 +55,13 @@ bindsym $mod+Return exec kitty
 bindsym $mod+Shift+A kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+d exec rofi -show drun -show-icons
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
-
+exec_always --no-startup-id picom
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -75,10 +75,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+M move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -87,7 +87,9 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 
-bindsym $mod+p exec flatpak run com.brave.Browser
+bindsym $mod+p exec firefox
+bindsym Print exec maim -s ~/Pictures/screenshot_$(date +%Y-%m-%d_%H-%M-%S).png
+
 
 # split in horizontal orientation
 bindsym $mod+h split h
@@ -192,14 +194,14 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
-
+for_window [class=".*"] border pixel 1
 #---------------------------
 #My additional configuration
 #---------------------------
-exec -no-startup-id nitrogen
+exec -no-startup-id nitrogen --restore
 
 #--------------------------
 #--------Monitor-----------
 #--------------------------
 
-exec --no-startup-id xrandr --output DP-1 --primary --mode 1920x1080 --rate 180
+exec --no-startup-id xrandr --output DP-0 --primary --mode 1920x1080 --rate 180
